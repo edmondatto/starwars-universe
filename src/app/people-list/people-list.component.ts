@@ -7,19 +7,27 @@ import { PeopleService } from '../people.service';
   template: `
     <ul>
       <li *ngFor="let person of people">
-        {{ person.name }}
+        <a href="#" (click)="selectPerson(person)">
+          {{ person.name }}
+        </a>
       </li>
     </ul>
+    <app-person-details [person]="selectedPerson"></app-person-details>
+
   `,
   styleUrls: ['./people-list.component.css']
 })
 export class PeopleListComponent implements OnInit {
   people: Person[];
-  constructor(private peopleService: PeopleService) {
-    this.people = peopleService.getAll();
-  }
+  selectedPerson: Person;
+  constructor(private peopleService: PeopleService) { }
 
   ngOnInit() {
+    this.people = this.peopleService.getAll();
+  }
+
+  selectPerson(person) {
+    this.selectedPerson = person;
   }
 
 }
