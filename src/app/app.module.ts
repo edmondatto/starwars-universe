@@ -6,6 +6,8 @@ import { PeopleListComponent } from './people-list/people-list.component';
 import { PeopleService } from './people.service';
 import { PersonDetailsComponent } from './person-details/person-details.component';
 import { appRouterModule } from './app.routes';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { appRouterModule } from './app.routes';
   ],
   imports: [
     BrowserModule,
-    appRouterModule
+    appRouterModule,
+    FormsModule,
+    HttpModule,
   ],
   providers: [PeopleService],
   bootstrap: [AppComponent]
