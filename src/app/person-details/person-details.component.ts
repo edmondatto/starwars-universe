@@ -31,4 +31,7 @@ export class PersonDetailsComponent implements OnInit {
     this.sub.unsubscribe();
   }
 
+  savePersonDetails() {
+    this.peopleService.save(this.person);
+  }
 }
